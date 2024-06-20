@@ -1,0 +1,132 @@
+API de Gestión de Productos
+===========================
+
+1. Crear un Producto (Create)
+------------------------------
+   Método: POST
+   URL: http://localhost:8000/api/products
+
+   Body (raw JSON):
+   {
+       "name": "Producto de ejemplo",
+       "price": 19.99,
+       "category": "Electrónicos",
+       "code": "P001",
+       "description": "Descripción del producto",
+       "stock_quantity": 100,
+       "status": "Activo"
+   }
+
+   Descripción:
+   Crea un nuevo producto en la base de datos.
+
+   Ejemplo de respuesta (success):
+   {
+       "id": 1,
+       "name": "Producto de ejemplo",
+       "price": 19.99,
+       "category": "Electrónicos",
+       "code": "P001",
+       "description": "Descripción del producto",
+       "stock_quantity": 100,
+       "status": "Activo",
+       "created_at": "2024-06-20T12:00:00Z",
+       "updated_at": "2024-06-20T12:00:00Z"
+   }
+
+   Ejemplo de respuesta (error):
+   {
+       "error": "Error al crear el producto"
+   }
+
+2. Obtener todos los Productos (Read)
+-------------------------------------
+   Método: GET
+   URL: http://localhost:8000/api/products
+
+   Descripción:
+   Obtiene todos los productos existentes en la base de datos.
+
+   Ejemplo de respuesta (success):
+   [
+       {
+           "id": 1,
+           "name": "Producto 1",
+           "price": 29.99,
+           "category": "Electrónicos",
+           "code": "P001",
+           "description": "Descripción del producto 1",
+           "stock_quantity": 50,
+           "status": "Activo",
+           "created_at": "2024-06-19T10:00:00Z",
+           "updated_at": "2024-06-19T10:00:00Z"
+       },
+       {
+           "id": 2,
+           "name": "Producto 2",
+           "price": 39.99,
+           "category": "Ropa",
+           "code": "P002",
+           "description": "Descripción del producto 2",
+           "stock_quantity": 20,
+           "status": "Activo",
+           "created_at": "2024-06-19T11:00:00Z",
+           "updated_at": "2024-06-19T11:00:00Z"
+       }
+   ]
+
+3. Actualizar un Producto (Update)
+----------------------------------
+   Método: PUT
+   URL: http://localhost:8000/api/products/{id}
+
+   Body (raw JSON):
+   {
+       "name": "Nuevo nombre del producto",
+       "price": 24.99,
+       "category": "Electrónicos",
+       "code": "P001",
+       "description": "Nueva descripción del producto",
+       "stock_quantity": 75,
+       "status": "Activo"
+   }
+
+   Descripción:
+   Actualiza la información de un producto existente en la base de datos.
+
+   Ejemplo de respuesta (success):
+   {
+       "id": 1,
+       "name": "Nuevo nombre del producto",
+       "price": 24.99,
+       "category": "Electrónicos",
+       "code": "P001",
+       "description": "Nueva descripción del producto",
+       "stock_quantity": 75,
+       "status": "Activo",
+       "created_at": "2024-06-20T12:00:00Z",
+       "updated_at": "2024-06-20T13:00:00Z"
+   }
+
+   Ejemplo de respuesta (error):
+   {
+       "error": "Producto no encontrado"
+   }
+
+4. Eliminar un Producto (Delete)
+--------------------------------
+   Método: DELETE
+   URL: http://localhost:8000/api/products/{id}
+
+   Descripción:
+   Elimina un producto existente de la base de datos.
+
+   Ejemplo de respuesta (success):
+   {
+       "message": "Producto eliminado exitosamente"
+   }
+
+   Ejemplo de respuesta (error):
+   {
+       "error": "No se pudo eliminar el producto"
+   }
